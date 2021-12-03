@@ -3,66 +3,14 @@ const choices = ["rock", "paper", "scissors"];
 function computerPlay(){
     return choices[Math.floor(Math.random()*choices.length)]
   }
-  
+
 let playerScore = 0
 let computerScore = 0
-
-let CountBtnClicks= 0;
-
-const btn = document.querySelectorAll(".btn");
-const container = document.querySelector("#container");
-const result = document.createElement('div');
-result.classList.add("result");
-
-const para =document.createElement("p")
-result.appendChild(para)
-
-container.appendChild(result);
-
-
-function onePlay(){
-
-  btn.forEach((btn) => {
-  btn.addEventListener("click", (e) =>{
-    
-    playerPlay = (e.target.id);
-   alert(playRound());
-
-   para.textContent = ("computer score: " + computerScore) + " " + ("player score: "  + playerScore);
-  
-   CountBtnClicks += 1;
-  console.log(CountBtnClicks);
-
-  if(CountBtnClicks === 5){
-    result.textContent = para.textContent + winner();
-  } else return;
-
-  })
-})
-
-}
-
-
-onePlay();
-
-function winner(){
-  if (playerScore===computerScore){
-     alert("THIS ROUND IS A TIE" + "\n" + "\n" + playerScore +":"+ computerScore);
-    return("THIS ROUND IS A TIE" + "\n" + "\n" + playerScore +":"+ computerScore);
-  } else if (playerScore<computerScore){
-       alert("YOU LOST THIS ROUND" + "\n" + "\n" + playerScore +":"+ computerScore);
-     return("YOU LOST THIS ROUND" + "\n" + "\n" + playerScore +":"+ computerScore);
-  } else {
-       alert("YOU WON THIS ROUND" + "\n" + "\n" + playerScore +":"+ computerScore);
-     return("YOU WON THIS ROUND" + "\n" + "\n" + playerScore +":"+ computerScore);
-  }
-}
-
  
 function playRound(playerSelection, computerSelection){
+    playerPlay =  prompt("What do you play?\n\n(Rock, Paper, or Scissors):","");
     playerSelection =playerPlay.toLowerCase();
     computerSelection= computerPlay();
-    console.log("computer played " + computerSelection);
 
     if (playerSelection==computerSelection){
       return("It's a tie");
@@ -94,9 +42,7 @@ function playRound(playerSelection, computerSelection){
     }
   }
 
-  /*alert(playRound())
-
-  function game(){
+ function game(){
    for(i=0;i<5;i++){
      alert(playRound());
      console.log("computer score: " + computerScore);
@@ -117,14 +63,4 @@ function playRound(playerSelection, computerSelection){
       return("YOU WON THIS ROUND" + "\n" + "\n" + playerScore +":"+ computerScore);
    }
  }
- console.log(winner());*/
-
- 
-  
-
-
-  
-
- 
-
- 
+ console.log(winner());
